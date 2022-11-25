@@ -3,6 +3,6 @@ Atividade teste para vaga de estágio. Esta atividade foi desenvolvida usando o 
 
 Etapas para rodar o código:
 
-1 - Faça o download da ultima versão disponível do Node.js.
-2 - Clone esse repositório para o seu computador.
-3 - Abra o prompt de comando e digite "Node *nome do arquivo .js*"
+1. Faça o download da ultima versão disponível do Node.js e instale.
+2. Clone esse repositório para o seu computador.
+3. Abra o prompt de comando e digite "Node *nome do arquivo js*"
