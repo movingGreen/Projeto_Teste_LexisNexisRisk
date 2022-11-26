@@ -1,5 +1,14 @@
+const prompt = require("prompt-sync")({ sigint: true });
+
 let stringBase =
   "dzVW71l57WxMTUcpCvxbL2ocZthDBv6f3ArzqIa7LZwj3TpHVDYWUeJsWqC3KmxZe09/12/1997jyOHjWBbQa1eeNEM8FFblgDOkNLwTAafxHLSh19GVz5eHv0zVnXjPn22.103.761/0001-01YcujCoh8oNccRDfIZWdzcSzMbw31mvDKHHqLgflfQ5BF7rV3DMo3(81)9988-6630t028yhzC6v74M4yiUf0LefDK6tZ8eooYlPvuwjcNJPZDcqmuyhJVJrf2PETvWfnHBiPHkzYAnkKzwmDghbtHw7inOl5voqCt9(85)93747-2877VHWuCyD2KIY5l3tPfXE9M4BeBhlhyJMVdFrERinnLVweKiIixgu2kuhL4V5cqzlu0jpq5f5nindFVCnZEf400RzmoLPdEcqaxV(79)8536-20281lo7G243vwP2jj8fY3PfdkmWSS1v648zX5dYTDzvHmFnw7mAEmZ9ZtJ6oJJ9NX9rSt8CU0zRmfG2DjM25/01/1991qOSFGahi3nNiS1c2VBfg67e9hu5b6cKmDd4BUCvj4AZT3q87PMW(82)92285-80763CYAbsOUbiEuagO3lSJiEtXcbrnqKgagjLqmMYTSgAuKH6F6LuqJ42JP7aoOshbgtpL2bftDLV3Ef5XWFi2jUGJlbFoSWa02/09/1997rgK2xljvi6olcxEGb87Myu84jvOxdThXuaalUgqkNgt7eP6gD19BY(35)99504-8303Gaj6DIZibAWfcA1Ih8lX348NZOOwmlIKYTpm5djYNGMiXxdVGVSHKjkJPRovXUcg(19)96761-2569xRrW6tIurz6UoZIOI5Ze8jrcwLRk6JIapexWrevXYTuS4ZjQczs5kyM3Qa2278-9864-3912-9652LTVNYBpLBLSfaUJiVQCsYwAF3CsLXOaM9uukO6jgB580dDsGFeA6h0SvjgYEu1t4RmzugvVC1seGRpedX91HdXY556.363.666-63pVsmwxV5P0EmruYuDJddni90wR2CBC2kYhpM6xxQH4UMvmbX5SV7t4zJr0Qg2463.7089.6539.5423zvz4IO68KtyIh0TLOWkbXli4cmRVM05QK8GxKvNdKrCGXT6y2UZTwM2lyn9fIc9Ho5SJmsbh2DEjqR1bg6YQ4096 9345 8577 4547F3s0z6cj55Q3dOqxd1xYtgRQ57ozWCtIZuhZKArTr368ESZsh2990yTc40ReVuU3BCsZt0LKy0PlQX4750 4698 8259 8635DJrNcG8WkfVl4cdLEYVfWQwULqXvRHmEaKPbcKX7CL2UFexkafrbl5W5zJYGykyJsQrBgZmJz0wE2N6E27/05/1982oJ8ReKldySyWSZRq5yAvbSIGffR0BNJS1xZ572qBDDS5ah2MElYfYnPqpVvmw4oR(11)95483-4210taAoXtdPZxe96gopzBIopoHO7SvKNRPF26ZonTxtCeuQpqwuaxaKb6rIVfv5ocNDs1hSrKtBVQvpjxmANXp8195565-9910y4leTPutlY9OmHsLIizabu7m1uzZ3zULvTlZdXAzD89G5OyFEC2hIuJcontact-us@adc-inspect.isQl7dmp4Axh5KkIbuptDEoiutr9MM5iziOmA8AySt1MwOovh2VzK38H23.110.265/0001-48OCrETnZN8zgl5dprk9N7SeW06UmiJ5TjvrsOET6EZVb2JiYkcvTOcCCLf8rNqwycFCmdEhuYrDwBG9g6amWdnfYHoHJB4TntXAe(44)9803-30603sDkIexESi678axmM4untUmKLeAVoOUwLakEVte01KJyePaAhSgHO5uww5YrIaD(44)99855-7241ntIWdeJQlCi8Bl04C14bvkYbeC7eL0pmZL5gZdUtFR5gVgOk4M1oEBakBridie@centralepiecesauto.orgMjzg3mXTtRLVA7wV7oWIqjg5sXvh5BPMDv0YP9KBQzr94WSbwxSGiixRSkWwR1OYdPXia1bdJ8t6TIa98plVxcS3rwlurV0EgfcZFranny@kentuckysportsradio.asiaLuLgrZvEgE9PBsFqSWr1CAc3JOmccAUChmW9WMpf9rz1DtYHbfqv5yJ4QsEpSixXOA9Nlugf7MLSAScarr702.510.872-39rMzb3yKPmeKWQEjvqZWW2HBgegPZJObmxlvoNNrDWKcLwX8gP7X8QRY2gq11XUzdHA6AzVvlmhXSP2MlfcekJwntmg4hHj(54)4080-2983ZZJDqjw2UGxWZz1A9QoDcwvd3ldtaNS7gkQbRk1lNjK7aCWHLNFTRiUijpK2Uq8ZBsvcKZ04ucZrkB66KsOSEvj102/12/1983DjqecW9tusFMLQWnVil4pKP7R4mZtCMxijqBexcK0fYdbHzSwl9BdPDhY31e4JfK3m(62)96412-9228nd9ZfigHSybow3TVkeCKnPpybnYTCrCjnEDygUd4npHQYBLcQst11QKsd6FXrCQnom98rkjSLAhZC9oZE7NOElvina@searchforrecipes.tfa7UcB6mnvRldWL9WxQKEz8FOBwtDOexdzTtVGpedxaNBWqnNsL6B93N3tDUapBgEZ77.330.582/0001-07ZSUaBQyaS1RKssml2RxlTvbRxx2NGOxiXtDKEwSTFbEwMruTNSMUna7ai3PoWtIQ0qWI7Ng2Sox(16)7553-2800xPfw8onamRgY4ttzyQa2nouSJVHJduBqdZNhxWbrMkk3LSqfk8On7SDcrX2m08/08/1991rvNtGMrBpneZ1JdjuzKXMX8USVrqB1buXjOxPFmrfYsFSqYUvymZQMneFsuIYq5s8904/10/1987qGFfk0w3U88rw6Bxfw1jjpmC4CAdfMSqw5nGW2kYBNtL5KOYfHntdJ2KT4gr3NHXbC5(41)8084-5357ljR3y2TK33U7xxgRXYuolqPflfd1OAsS8bbm16oeTsIAsf1rKNXy2txekxWFAzVti22.172.214/0001-881QgbOSsDIoephw8cIPQ3EqYSNQZt72RBtL7gUe3ty2XpjuTrpHzAStHjK4sC9qIHKy3gEOtFYTFj56qPYAktZLFred@rafonline.dkQJtcOuEhu2REhrVeuwe98Gu2runLNmEVvIRemvfk6AcrEtjHfcRMDlGn4FDTNbKGzq1tOKk3khefg1cf4n6aEoC3556.817.717-17xB36iKQ8QRNIKZeaZiSd1Mp8TEFdpVgvLwajo9HZGYdGZTg3dotwLBzVQucflD6uRYM25/01/1996RmbAsaBw5K0LOXpqh7fsoGBpw7BFJBV872jBqd985HwEkq6iq8qh2gGyDYcontact-us@comeser.frLyBGpp8qcYCIAkTtD33Dc0FjF1wAMJEYx69XGtnFcbeOY5OxihKCUKLRqwLAsY4JMeIuN8MLClxgTwKEOKr117047-94673fJoiGntDRDUiBdVuFqPDIVfzgM1vrjgxPYHU5bsshltCQ6stm4mce2OcBobBeNN4bS65yt5pgeO210.626.731-23QDjHfU6lZ69bpx4i8ATL6MOpkGMG6RExdsqddMovvLNkJr3hqQ8PwsP4qM43GUL129/06/1992lfo6YF1D80usvjrgUpdWJYIOZc1FnakSL5UgBR4Ii95XFAsLFwXO79p13fwWhvH2rzEPeew(21)98624-3767iwVMZCWKRgu5eQqTaWD5qANpW1pcjHCKtqD693yDjCXXWp38G9D29/06/1992OYPs2Jlcz0DPdQFAblxqlBTT9xpGkmdkQtZNsT0q5vaFTXmSBJVBJgSzvhqNmqfQhWjPSa0OPcdm2yhBs(53)2819-6988xrRmE1hlXpdVtB3Kxky4lSR7HKaYVJTM4B0MqRIlTxZdDFXKZSR7j(79)4037-7101BVqDQeWcTkVvYfT5rojfIRCaj3JULnrNLnGqKbrvBKTeA5KZnkzXrGdmeJsi0HyhOnNt3RMorneHgCT2Agbff832.435.177-96Aubs9KZn0IBkryCKS9FMD5tgoub11ZpnNVdeH1gQ5IY6VGJgYFiGNhLGx3WJn708/03/1984ZkaNmXNBwtzbP8InPszcCVwU8s1MK55YBwHgdcjx8daAkgERkk7Uv5fmCaqYjbl7PWvKw1rzEcCfPka4l14.345.154/0001-20ZNMA7AhfSCYGV68yC56mQ754QjYrtlc6DFkysGNFo1uu3kO7H7S5IcWBCS4I1LXKBDY6snJFuokVlyeiXx7KPFGcB4145-2750-5119-1449DX2qhgsOWv3hOHarJzmctKHXnbRF5Gf6O3SBLVVfZBrpy5IN7BNJoZGBRRy28axYiE5Co9C018.010.640-67I3LU3fozpxyqV8cIAsau8epzFbORm8tdJAnkfq0fJQ3WUhiudWaNxmRIuLX5pZ9yK7LICNDw(21)95585-7735KMN53GncEJQX8mVraVRVg7rnlx8EZsBQ2BP1lrFzkz06972x8zjTflDMzewgEDU4qH9sceQKWCzYqold3yYraZYgsuZ8196471-7069zGOpbh0M4ZUJ2IoPDyLgfGXSpGG8I6J5ivFobGmOPnjJ9vDBdYjMsmWTYb87T9Nj2cMOPhR6X(91)92530-4753jj7IQGb4PM3uToYBPK1lqyi0IhH2uQYX810btGS6qf7OUIUhXEJPe6Rs5khZcTb95eGh9p66Zs8cwVmrhXj8bTXuI(71)96866-4243BuZnSZBGTRvM3BJvq79DUFCUGTpGvQo3RBTjVg6jhKjP4Oei5c2703-6160-0150-4405UxiVkN5ojZD02c9STdX1wTighexfKzTkXJ1wMM9u23QcbtPTKybRAXf5xZ24Ts3AnFydlgGmIfHGxbJwFitluOpEmbXB252.037.541-87rI4OeAfktK5UOWruAuft0oycSCD0BFKqKjbwNgyOuuuIsQDRjX0L5OAl5mi16MWTADsTUs8ouHAVGdCQGJT6OZ4975 2929 6431 2272OQr37sdraUmbhZdnUdpupfMmuOHEU5I8Ngsj5NBty8aZLuZM92NMgD4EDdsjquQ0P770LuzRX1mvFsE7SWTTXiPE4ZkC0SeOXAbigail@futchfactor.storeVv3fW0234rkqfVdTZIv1HRIKxn1slv0FppzvPJHonIKYXhjhpxAWjn6ToNeGsTTg2228-2757-2747-58329o2CGlmSOmCBTZGoDAl80ROIJtaVwSrQFC3mm35NIB54XlLhrsvELsrKbpyaQMWMcontact@vivesoy.eefZUWGCqzAW5s76uQVHn7CTEK7CnnVZzemK9ZprLN3XY3UEmPiayG7n0NE691gQoGZ521/09/1994Q5gcsx35XMmotzJKHdD65GXyo0RlPW4p8VRH2ySBukaLYnYcbRa58x04IfBIgn0PeSVe6YeDWlzuu23TAO5215-6663-4768-0645pTmKwGVMVjdsTMdzINtqY934LjQEF9vgGeLTdl6JuPQp1l3yBhL5I4roheK5YCqpXBKoPnveMu5H(19)97841-7951sVIPZxa35grP7FhKZxK2EoDtBW6EraajIuIcJtVznZgSH0sJq7Hs0diNGnHW7RXbvYPaTwhNW3W08CfVRjzRyeEgHTFR834.361.267-13Xn8xExVXjnfNJHbwypVFVUSKGCMBUs8tf1QFaKoQsaA4uWw89AnhfqX1UwDkPnBnPSk9(71)94138-53276EgEMbwuMxsaCTlP3rUR23pTK44HdnNsBsz0DRSCAgR0YDoYFTbHk15vKVALHU42ov(24)92729-2540gzyoOP7qRtBa7exDS02fiuSStpReheOE0qjhXUZs1zj2z6YqS2EBgMiIdVnjAjuJYr3PyRrhR057B3tHeTE(43)4794-55308yU7VOoIPt9uAoIprgg1eH5djgDVPugBq3jKtKttaA8eDBdOUMinfo@shipbroker.biz7KjsqWpE2NqVUTeRMayz9rfM9pZHZErVEUl4KRcuiQdP5PyjCt0K5PIVDRUjsB3SFhVG08/05/1990oKbOKlzAQlMUlQ2guszBhzcCweyRjNBiZWt62Ti2V3X1IPcoYy7mV6Mu3W6NvHaba0K2KOMuPk3noBQkIL7yq624.320.656-46UdkAK16u7jB5ha2p9qvddmaapKAhxaBC5q5OTFX0W2pKZH6c9MItyKIGQiAifdu8p(47)5278-4888gzpkuaT1y2ghmAfR2qKjLAddUdWoc7lneyNVW82biAVGkoOgO2B6b0jQx5ld10S404lMfC0fSE(85)93747-2877bHOdo4etkHCZadtjUaFwv80zZny91mR30dZBKmkZPyxbe83WtCK9rPMUJVss5NCJ5Iv4758.1160.0356.3566lYWbnWUBbCUwAk7R8STDmOav7KpDqMcMHZ2ZtHGVm1vWfPld4mhQNFbciKNo9UnY(11)95567-2296cLaPFiLVVRzu8mq2KW9V9RgmoqpUWsbLoHdreaFyJxSyinTN9DtLI1Ivfr51dSUVEntamikPAhZ8xnAf8iWAcQk2703-6160-0150-4405H3eP65oMZ5rsORBDTbhZBjFkUtTldOAdPDO0XjFQAFGvOaBi26JdD3W41RRWjOHr6iMnXzd5rosGwo(19)96761-2569idygs84FdgsmYAVKRZzMKk8d9Uhlowu0DTovvAo8PSzxAtxSj8XsZZaH2OATh1gPWdUY4JaUpcp4oMsknudN3cv(85)93747-2877lLAWHc6PPEACFUuSrRMP5vsPJAmD1fwB3KWlmDkkzkgzoKn8PPDhFPfjsrkrZqlObsnCwNT327.470.388-58WRxzd3isL7Zg5Ml6v0ndfPj6mxZLz7f4hkM9QtuBn6bBSDWUVfx1n0CM9qweZD0(11)95884-5616WmCa0fRDvwknNJcYtQFyDB34NUyT69RJQh9zq7B5sEuqurciOBpgaDT0ZZzG7DkWr5i986yIOzyf7r0b(19)5981-2341yoV7AZ5xRyeeyPpvH8HCcmUq8U3zzACAWOydxX7JSR0jPd4rIWPembvIw2DL0N(17)5759-2678Y3OOPIZulqT0F5v6lC4olLLxPbujUkuapXBYZ93P32OavvfzbeMtox7cnreVUyXKFlgjEruIBXxD1gyS6fCe2ksI2(41)8066-8919TBY57JjlOrRkO6HPwT6bHJtCHHzW300hiM0wtwN8rhoBt9jO4AsDW834.014.828-15jlfGJzHDkdpkPcmNgKoRhYlmNpDvIdhp4o6XtPXYRq5v8cvigQmT5Hys566.353.046/0001-00Ska2Yoob7kZKEDZV23ST8agDeug051NYW0WINyhanLabzcUP0nkF02/12/1983S4l7NOhsFMjrkZf0QgUAtsMjxQyl916OZZNTfNEC6tDXvU7GOT28cSeEJqXJREKxDlC1DRvsyqOcRSMbuqTw5Fo2KpbWbUj9Pp94758.1160.0356.3566jYygVvigvFok3NXk1rgHopKCKAlx7I1uUNsEH7wIBZOo0NOWokYSZTksUE8kdmcXW8A7ov06/02/19843Se7NbQomP8GrTVvrJ8nnluzFga2kT58r9siLqpknHxngQ5xRoWoIuajeMZybGENKqy82Rr676PezKXIUWVsOHue8ANkkFFS02/09/1987EQUpVk2wQ16FEjfgp9ouBlyKxbPhH5xd1iS7XAo6ZCE826EjV6reFC8LnWDCeR7E4Q06/04/1995LOri4XPdgiMKOxk3mSrrAqUzBsLpcYum4Zveq1afMDfs9t7RMdIfDgCBmBTP9MFEIbpQE72RNOVS(31)99328-7254VFHm9c0LRyCiaYTyFMmFm4IzhtNqUKCfzM3CwJUGpzz2kdZWc6fcdB1htE74gY833sKYLrkXQkFj31/07/1987CmmXCHVhpfGjDYlzXsSp1QMEmOE0Xf9c55y2suRpVXmfSZR4SG30Ac0iVbLiql8XGczDyzIoXRQ56OJoF3oRRdtlQWfLUwh1qmnKinfo@apamanshop-aichi.ruOmoJUbTzYifG96NQmgFB6QwFpFhGEE8tY9kLzibphZeiG3IzlTRqFV8tJIluDjYn00wmeGEUFlmK9Faarg2e2222 4756 8056 6827a8u3gSDApHe24gwLJF8vWmNdh197ekI3dnsoK1xCrEU578DkFbAofXLON3ZdHfRR9JzN88yUjc1h51EZppXJrpSc53V12/10/1986P8I9rJR0PwIzvCWCmBCzr4OliRWRVMTRNZeYo9prJ686BJ5XiwfsLFwyXm7YniJGScnpJQ0QAHicv5yC9Wekc9wBBlzx04/03/1985QtmnvTHvZEOWuzXzaxLhu1itbKWy5rHnvbDjsSCZnBpakMTsMh12/07/1995EUnh1MQ8jMlvEGz1zUMHhTQo1CaWPU5wckV9AlUcIPXRsgcrwnSUVOE8eT4Qw1sN8HWzpu9SLG06.181.625/0001-83fYAOkVJ5TtyRDWHUAl8Tybw0hD7XlP7xaIcfCsb92cV8tOmoRbpLivbvPhZdxIExSCYBnmyL0XgSPeMdDsMgDRgnR(12)2215-2781hfeiN6almy4YHPvNspk2aiwbyB13DzCy02kSErP5oiPtNANpJ5qlh9TxcREknW44MCxFqnI2pTDvPTaH1m2720.9243.8814.7213dDMvgxOoTmtPn8d1geueLQeMoatlfpXmlyTr5rZkqwPBtelBMLkAFroZXBykwAu1kU1wyGuhQnZblpJzcFLS0T9s5vuCgOOME(21)98624-3767aO7DeWMtzJNkkJQTkHB4reW3tMkFO0PFxIXu2mlQNp2bkyhJD9687U9avjOY11498682-6511xAIj1M72nJ1idoO2jqwoZgG22KYdJ7ssxSCwUasuv0s6w4FX25vECSI58x4FD2h0fQl9hk7tmqn2ihRxFfG(67)94602-6012v1518bPQ4ZohojFc9uH7AkbBdQP2ZA12z0huo7gb2sSPoQACMYFywmOThmOwZqYr61Q08cQeEOmJA2dMkNLZkQvxXzbMQRXIH34.530.048/0001-23T1rBXSvZvfsuNFCjiw2xshAAR01CHeuK7oXYc0oUkPNznwTa1RzhiE1jo8lHZx2kph1dwYU2tSdoUG4obmrvrTsgjMg7fWTfrC4221.3857.1586.4708Ug3S08yvqdRUQUyeVDQxiODdPnabpbMuBWZpRHJMP6tZIfT6bWLTAzkf4vpb3f7LOqAqTe5mMHwkOsWB(81)7186-7387l5HTuHplBoGfyieZD3GIvVZT8kxXMXnqcZM1COimAqoHSYbtowf7uBLkcw2PowuNeKzx8zaSvdnM8FT17/07/19844jfrQxipXoTMbxYTEI9VskG8fxPFji25rYUdXMTCQrjNSKafDcuJW27/05/1982AVACWivDrhEXIfwaLyTfYe6H1CQ0f2oHVBkSgQPbCBquaYmGgdLnxgwViDc8iGJUIhKKNyMobSwh4Qk7DVC17mBQUVlY26UR0(83)92910-8190qW4N78xb60sHrbUD7knuMBqzWFrYmf8tUnwHwg9qdFVc59fjrk(34)92145-98689FEKcc2XDGimlM52PW4Z65mel8cF65niU9gKPM9GITfq7LJXEFD6GtLi4wnHMdsd418/01/1992nQGc5XmMPwzVfuOC2F1PguOF95t1GqnDB3o3H54uquk55d73vtngha1nxgVDeMyvWD3gIWYBZpvQCh7zy2lOM0YYxYY1II874oyDElvira@simf-net.eu";
+
+console.log("A pesquisa de dados será feita em uma string de testes.");
+const resposta = prompt("Deseja mudar a string de pesquisa? (s/n) => ");
+
+if (resposta == "s") {
+  stringBase = prompt("Digite a string de pesquisa desejada => ");
+}
 
 // Declaração dos padrões de regex
 const REGEX_CPF = /\d{3}\.\d{3}\.\d{3}-\d{2}/g;
@@ -9,52 +18,36 @@ const REGEX_CNPJ = /\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}/g;
 const REGEX_EMAIL = /[A-Z][a-z]+@[a-z]+\.[a-z]+/g;
 const REGEX_CARTAO = /(\d{4}-\d{4}-\d{4}-\d{4})|(\d{4} \d{4} \d{4} \d{4})|(\d{4}\.\d{4}\.\d{4}\.\d{4})/g;
 
-// Busca na string dos dados desejados
-let listaCPF = stringBase.match(REGEX_CPF) || [];
-let listaData = stringBase.match(REGEX_DATA) || [];
-let listaTelefone = stringBase.match(REGEX_TELEFONE) || [];
-let listaCNPJ = stringBase.match(REGEX_CNPJ) || [];
-let listaEmail = stringBase.match(REGEX_EMAIL) || [];
-let listaCartao = stringBase.match(REGEX_CARTAO) || [];
+// Busca na string base os dados desejados
+let resultadosPesquisa = {
+  CPF: stringBase.match(REGEX_CPF) || [],
+  CPF: stringBase.match(REGEX_CPF) || [],
+  Data: stringBase.match(REGEX_DATA) || [],
+  Telefone: stringBase.match(REGEX_TELEFONE) || [],
+  CNPJ: stringBase.match(REGEX_CNPJ) || [],
+  Email: stringBase.match(REGEX_EMAIL) || [],
+  Cartao: stringBase.match(REGEX_CARTAO) || [],
+};
 
-listaCPF = listaCPF.map(( value, index) => `${++index}º - ${value}`); 
-listaData = listaData.map(( value, index) => `${++index}º - ${value}`); 
-listaTelefone = listaTelefone.map(( value, index) => `${++index}º - ${value}`); 
-listaCNPJ = listaCNPJ.map(( value, index) => `${++index}º - ${value}`); 
-listaEmail = listaEmail.map(( value, index) => `${++index}º - ${value}`); 
-listaCartao = listaCartao.map(( value, index) => `${++index}º - ${value}`); 
+for (const tipoDeDados in resultadosPesquisa) {
+  resultadosPesquisa[tipoDeDados] = resultadosPesquisa[tipoDeDados].map(
+    (value, index) => `${++index}º - ${value}`
+  );
+}
 
-// Montagem da apresentação
+// Apresentação dos dados filtrados
 let dados = `\n======= DADOS ENCONTRADOS ======= \n`;
 
-if (listaCPF) {
-  dados += "\nLista de CPF : \n";
-  listaCPF.forEach((value) => dados += `\t${value}\n`);
-}
-
-if (listaData) {
-  dados += "\nLista de datas : \n";
-  listaData.forEach((value) => dados += `\t${value}\n`);
-}
-
-if (listaTelefone) {
-  dados += "\nLista de telefones : \n";
-  listaTelefone.forEach((value) => dados += `\t${value}\n`);
-}
-
-if (listaCNPJ) {
-  dados += "\nLista de CNPJ : \n";
-  listaCNPJ.forEach((value) => dados += `\t${value}\n`);
-}
-
-if (listaEmail) {
-  dados += "\nLista de emails : \n";
-  listaEmail.forEach((value) => dados += `\t${value}\n`);
-}
-
-if (listaCartao) {
-  dados += "\nLista de cartões : \n";
-  listaCartao.forEach((value) => dados += `\t${value}\n`);
+for (const tipoDeDados in resultadosPesquisa) {
+  dados += `\nLista de ${tipoDeDados} : \n`;
+  resultadosPesquisa[tipoDeDados].forEach((value) => (dados += `\t${value}\n`));
 }
 
 console.log(dados);
+
+
+const apresentarStringBase = prompt("Quer que seja mostrado a string base? (s/n) => ")
+
+if (apresentarStringBase == "s") {
+  console.log(stringBase);
+}
