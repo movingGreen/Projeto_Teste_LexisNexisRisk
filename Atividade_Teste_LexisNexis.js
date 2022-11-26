@@ -9,6 +9,7 @@ const REGEX_CNPJ = /\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}/g;
 const REGEX_EMAIL = /[A-Z][a-z]+@[a-z]+\.[a-z]+/g;
 const REGEX_CARTAO = /(\d{4}-\d{4}-\d{4}-\d{4})|(\d{4} \d{4} \d{4} \d{4})|(\d{4}\.\d{4}\.\d{4}\.\d{4})/g;
 
+// Busca na string dos dados desejados
 let listaCPF = stringBase.match(REGEX_CPF) || [];
 let listaData = stringBase.match(REGEX_DATA) || [];
 let listaTelefone = stringBase.match(REGEX_TELEFONE) || [];
@@ -16,4 +17,44 @@ let listaCNPJ = stringBase.match(REGEX_CNPJ) || [];
 let listaEmail = stringBase.match(REGEX_EMAIL) || [];
 let listaCartao = stringBase.match(REGEX_CARTAO) || [];
 
-console.log(listaCartao);
+listaCPF = listaCPF.map(( value, index) => `${++index}º - ${value}`); 
+listaData = listaData.map(( value, index) => `${++index}º - ${value}`); 
+listaTelefone = listaTelefone.map(( value, index) => `${++index}º - ${value}`); 
+listaCNPJ = listaCNPJ.map(( value, index) => `${++index}º - ${value}`); 
+listaEmail = listaEmail.map(( value, index) => `${++index}º - ${value}`); 
+listaCartao = listaCartao.map(( value, index) => `${++index}º - ${value}`); 
+
+// Montagem da apresentação
+let dados = `\n======= DADOS ENCONTRADOS ======= \n`;
+
+if (listaCPF) {
+  dados += "\nLista de CPF : \n";
+  listaCPF.forEach((value) => dados += `\t${value}\n`);
+}
+
+if (listaData) {
+  dados += "\nLista de datas : \n";
+  listaData.forEach((value) => dados += `\t${value}\n`);
+}
+
+if (listaTelefone) {
+  dados += "\nLista de telefones : \n";
+  listaTelefone.forEach((value) => dados += `\t${value}\n`);
+}
+
+if (listaCNPJ) {
+  dados += "\nLista de CNPJ : \n";
+  listaCNPJ.forEach((value) => dados += `\t${value}\n`);
+}
+
+if (listaEmail) {
+  dados += "\nLista de emails : \n";
+  listaEmail.forEach((value) => dados += `\t${value}\n`);
+}
+
+if (listaCartao) {
+  dados += "\nLista de cartões : \n";
+  listaCartao.forEach((value) => dados += `\t${value}\n`);
+}
+
+console.log(dados);
