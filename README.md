@@ -5,4 +5,5 @@ Etapas para rodar o código:
 
 1. Faça o download da ultima versão disponível do Node.js e instale no seu computador.
 2. Clone esse repositório para o seu computador.
-3. Abra o prompt de comando dentro da pasta clonada e digite "Node *nome do arquivo js*".
+3. Abra o prompt de comando na pasta clonada e digite "npm install prompt-sync" e aperte enter.
+4. Depois digite "Node Atividade_Teste_LexisNexis.js" e aperte enter.
