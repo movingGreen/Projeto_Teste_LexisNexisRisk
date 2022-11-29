@@ -21,7 +21,6 @@ const REGEX_CARTAO = /(\d{4}-\d{4}-\d{4}-\d{4})|(\d{4} \d{4} \d{4} \d{4})|(\d{4}
 // Busca na string base os dados desejados
 let resultadosPesquisa = {
   CPF: stringBase.match(REGEX_CPF) || [],
-  CPF: stringBase.match(REGEX_CPF) || [],
   Data: stringBase.match(REGEX_DATA) || [],
   Telefone: stringBase.match(REGEX_TELEFONE) || [],
   CNPJ: stringBase.match(REGEX_CNPJ) || [],
